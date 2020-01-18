@@ -1,0 +1,26 @@
+.page {
+  width: 100%;
+  height: 100%;
+  padding-top: 25px;
+  padding-left: 20px;
+}
+.group-input {
+}
+
+.label-input {
+  font-size: 12px;
+}
+
+.input {
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+  width: 100%;
+}
+
+.input.error {
+  border: 1px solid #dc3545;
+}
+.feedback-input {
+  color: #dc3545;
+  font-size: 10px;
+}

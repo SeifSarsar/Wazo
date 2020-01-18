@@ -12,10 +12,18 @@ import { environment } from "../environments/environment";
 
 //Components
 import { GoogleMapsComponent } from "./google-maps/google-maps.component";
-import { HomePageComponent } from './home-page/home-page.component';
+import { HomePageComponent } from "./home-page/home-page.component";
+import { LoginPageComponent } from "./login-page/login-page.component";
+import { SignupPageComponent } from "./signup-page/signup-page.component";
 
 @NgModule({
-  declarations: [AppComponent, GoogleMapsComponent, HomePageComponent],
+  declarations: [
+    AppComponent,
+    GoogleMapsComponent,
+    HomePageComponent,
+    LoginPageComponent,
+    SignupPageComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

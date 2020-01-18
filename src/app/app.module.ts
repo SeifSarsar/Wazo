@@ -12,9 +12,10 @@ import { environment } from "../environments/environment";
 
 //Components
 import { GoogleMapsComponent } from "./google-maps/google-maps.component";
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
-  declarations: [AppComponent, GoogleMapsComponent],
+  declarations: [AppComponent, GoogleMapsComponent, HomePageComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

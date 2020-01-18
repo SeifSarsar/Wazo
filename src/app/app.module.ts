@@ -13,9 +13,10 @@ import { environment } from "../environments/environment";
 //Components
 import { GoogleMapsComponent } from "./google-maps/google-maps.component";
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
-  declarations: [AppComponent, GoogleMapsComponent, SidebarComponent],
+  declarations: [AppComponent, GoogleMapsComponent, HomePageComponent,SidebarComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

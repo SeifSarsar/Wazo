@@ -15,6 +15,7 @@ import { GoogleMapsComponent } from "./google-maps/google-maps.component";
 import { HomePageComponent } from "./home-page/home-page.component";
 import { LoginPageComponent } from "./login-page/login-page.component";
 import { SignupPageComponent } from "./signup-page/signup-page.component";
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SignupPageComponent } from "./signup-page/signup-page.component";
     GoogleMapsComponent,
     HomePageComponent,
     LoginPageComponent,
-    SignupPageComponent
+    SignupPageComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

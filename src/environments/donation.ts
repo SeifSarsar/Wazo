@@ -6,6 +6,7 @@ export class Donation {
   private id: string;
   private user: User;
   private capacity: number;
+  private image: string;
 
   private receivers: Individual[];
   private date: Date;

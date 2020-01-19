@@ -1,7 +1,15 @@
 .navbar {
 border-bottom: 1px solid #ff009e;
 }
-
-.btn {
+.btn{
     margin: 2px;
+}
+.btn-outline-success {
+    color: #ff009e;
+    border: 1px solid #ff009e;
+}
+.btn-outline-success:hover {
+    background-color: #ff009e;
+    color: white;
+    transition: 0.2s;
 }

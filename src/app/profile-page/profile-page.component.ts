@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Enterprise} from '../../environments/enterprise'
+import {Enterprise} from '../../environments/Enterprise'
 import {Individual} from '../../environments/individual'
 import {Branch} from '../../environments/branch'
 

@@ -1,3 +1,9 @@
+<div>
+    <label>Adress
+      <input [(ngModel)]="adress" placeholder="enter you adress"/>
+      <button (click)="getCoordinates(adress)">Submit</button>
+    </label>
+</div>
 <agm-map
 [latitude]="latitude"
 [longitude]="longitude"

@@ -13,7 +13,6 @@ export class HomePageComponent implements OnInit {
   ngOnInit() {
     this.stateService.searchDonationsObs.subscribe(donations => {
       this.donations = donations;
-      console.log(donations);
     });
   }
 }

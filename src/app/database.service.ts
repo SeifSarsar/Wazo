@@ -55,7 +55,7 @@ export class DatabaseService {
     let greaterLatitude: number;
     let greaterLongitude: number;
 
-    let donationsQuery = this.firestore.collection("Donation").ref;
+    let donationsRef = this.firestore.collection("Donation").ref;
 
     lowerLatitude = this.latitude - 0.009009009 * radius;
     lowerLongitude = this.longitude - 0.009009009 * radius;
@@ -70,23 +70,27 @@ export class DatabaseService {
       greaterLatitude,
       greaterLongitude
     );
-    if (category != "All") donationsQuery.where("category", "==", category);
+    if (category != "All") donationsRef.where("category", "==", category);
 
-    if (type != "Both") donationsQuery.where("type", "==", type);
+    if (type != "Both") donationsRef.where("userType", "==", type);
 
-    donationsQuery
+    donationsRef
       .where("location", ">=", lesserGeopoint)
       .where("location", "<=", greaterGeopoint);
 
-    return donationsQuery.get();
+    return donationsRef.get();
   }
 
+  getDonation(donationId: string) {
+    return this.firestore
+      .collection("Donation")
+      .doc(donationId)
+      .get();
+  }
   getUser(userId: string) {
     return this.firestore
       .collection("User")
       .doc(userId)
       .get();
   }
-
-
 }

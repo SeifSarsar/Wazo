@@ -16,43 +16,31 @@ export class ProfilePageComponent implements OnInit {
     private databaseService: DatabaseService,
     private firestore: AngularFirestore
   ) {}
-  donations: Donation[] = new Array<Donation>();
-  private user: User;
+  private donations: any[] = [];
+  private user: any;
   ngOnInit() {
     this.stateService.userObs.subscribe(
       user => {
         if (user) {
           this.user = user;
-          console.log(user);
+
+          this.firestore
+            .collection("Donation")
+            .ref.where("userId", "==", this.user.id)
+            .get()
+            .then(res => {
+              res.forEach(donationDoc => {
+                let donation = donationDoc.data();
+
+                this.donations.push({ ...donation, id: donationDoc.id });
+              });
+              this.stateService.getDonations(this.donations);
+            });
         }
       },
       err => {
         console.log(err);
       }
     );
-    this.firestore
-      .collection("Donation")
-      .get()
-      .subscribe(res => {
-        if (!res) throw "Could not find documents";
-        res.forEach(doc => {
-          let donation: any = doc.data();
-          let newDonation = new Donation(
-            donation.id,
-            donation.title,
-            donation.userId,
-            donation.capacity,
-            donation.participants,
-            donation.date,
-            donation.category,
-            donation.description,
-            donation.coordinates
-          );
-          console.log(newDonation);
-          if (newDonation.getId() == this.user.getId()) {
-            this.donations.push(newDonation);
-          }
-        });
-      });
   }
 }

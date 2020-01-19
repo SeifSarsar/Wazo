@@ -1,8 +1,6 @@
-import { Component, OnInit } from "@angular/core";
-import { HttpClient} from "@angular/common/http"
-import { AngularFirestore } from '@angular/fire/firestore';
-import { Donation } from "../../environments/donation";
-
+import { Component, OnInit, Input } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { AngularFirestore } from "@angular/fire/firestore";
 
 @Component({
   selector: "app-google-maps",
@@ -10,43 +8,21 @@ import { Donation } from "../../environments/donation";
   styleUrls: ["./google-maps.component.css"]
 })
 export class GoogleMapsComponent implements OnInit {
-  constructor(private http:HttpClient,private firestore: AngularFirestore) {}
-  longitude:number;
-  latitude:number;
-  getCoordinates(adress){
-    this.http.get<any>(`https://geocoder.ls.hereapi.com/6.2/geocode.json?apiKey=b5PONh6oKhomE_hcCR5CfY3hCD_VnDxbkQ-e-fF2Hsw&searchtext=${adress}`)
-    .subscribe(res=>{
-      this.latitude = res.Response.View[0].Result[0].Location.DisplayPosition.Latitude;
-      this.longitude = res.Response.View[0].Result[0].Location.DisplayPosition.Longitude;
-    });
-  }
-  selectedMarker;
-  iconUrl = "http://maps.google.com/mapfiles/ms/icons/pink-dot.png";
-  marker = {
-      latitude: 45.488276,
-      longitude: -73.491007,
-      alpha: 1,
+  constructor(private http: HttpClient, private firestore: AngularFirestore) {}
+  @Input("latitude") latitude: number[];
+  @Input("longitude") longitude: number[];
+
+  private iconUrl: string =
+    "http://maps.google.com/mapfiles/ms/icons/pink-dot.png";
+
+  private marker: any;
+
+  ngOnInit() {
+    this.marker = {
+      latitude: this.latitude,
+      longitude: this.longitude,
+      alpha: 10,
       icon: { url: this.iconUrl }
-  }
-  selectMarker(event) {
-    this.selectedMarker = {
-      latitude: event.latitude,
-      longitude: event.longitude
     };
-  }
-  ngOnInit() 
-  {
-    this.firestore.collection('Donation').get().subscribe
-    (
-      res => 
-      {
-        if(!res) throw "Could not find documents";
-        res.forEach((doc)=>
-        {
-          let donation: any = doc.data();
-          //this.coordinates.push(donation.coordinates)
-        });
-      }
-    )
   }
 }

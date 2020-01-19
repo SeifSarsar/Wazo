@@ -1,23 +1,21 @@
 import { Component, OnInit } from "@angular/core";
 import { StateService } from "../state.service";
 import { User } from "../../environments/user";
+import { Router } from "@angular/router";
 @Component({
   selector: "app-navbar",
   templateUrl: "./navbar.component.html",
   styleUrls: ["./navbar.component.css"]
 })
 export class NavbarComponent {
-  constructor(private stateService: StateService) {}
-  private navbarOpen: boolean = false;
-  private username:string;
-  private userID:string;
+  constructor(private stateService: StateService, private router: Router) {}
+  private user: any;
   ngOnInit() {
-    console.log(this.userID);
     this.stateService.userObs.subscribe(
       user => {
         if (user) {
-          this.username = user.getUsername();
-          this.userID = user.getId();
+          console.log(this.user);
+          this.user = user;
         }
       },
       err => {
@@ -28,7 +26,8 @@ export class NavbarComponent {
   toggleSideBar() {
     this.stateService.toggleSideBar();
   }
-  toggleNavbar() {
-    this.navbarOpen = !this.navbarOpen;
+
+  openUser() {
+    this.router.navigate([`profile/${this.user.id}`]);
   }
 }

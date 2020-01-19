@@ -10,7 +10,7 @@ import { AgmCoreModule } from "@agm/core";
 import { routes } from "../environments/routes";
 import { environment } from "../environments/environment";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http"
+import { HttpClientModule } from "@angular/common/http"
 
 //Components
 import { GoogleMapsComponent } from "./google-maps/google-maps.component";
@@ -22,7 +22,11 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { DonationDescriptionComponent } from './donation-description/donation-description.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+<<<<<<< HEAD
 import { AgGridModule } from 'ag-grid-angular';
+=======
+import { DonationFormComponent } from './donation-form/donation-form.component';
+>>>>>>> 0ca52e13f0f5c7134ba152d696b63466063e0002
 import { DonationPageComponent } from './donation-page/donation-page.component';
 
 @NgModule({
@@ -37,6 +41,7 @@ import { DonationPageComponent } from './donation-page/donation-page.component';
     SidebarComponent,
     DonationDescriptionComponent,
     LeaderboardComponent,
+    DonationFormComponent,
     DonationPageComponent
   ],
   imports: [

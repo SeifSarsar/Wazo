@@ -1,13 +1,16 @@
 <div class="page">
-    <h1>{{user.username}}'s Profile</h1>
-    <h2>Current Donations</h2>
-    <ul>
-        <div class="container">
-            <div *ngFor="let donation of donations">
-                <div class="item">{{ donation.image }}</div>
-            </div>
-        </div>
-      </ul>
-    <h2>Generosity Level : <span id = "generosity">{{user.generosity}}</span></h2>
-
+  <h1>{{ user.username }}'s Profile</h1>
+  <h2>Current Donations</h2>
+  <ul>
+    <div class="container">
+      <div *ngFor="let donation of donations">
+        <app-donation-description
+          [donation]="donation"
+        ></app-donation-description>
+      </div>
+    </div>
+  </ul>
+  <h2>
+    Generosity Level : <span id="generosity">{{ user.generosity }}</span>
+  </h2>
 </div>

@@ -4,7 +4,7 @@ import { Category, Coordinates } from "./global";
 export class Donation {
   private id: string;
   private name: string;
-  private user: User;
+  private user: string;
   private capacity: number;
   private image: string;
 
@@ -15,7 +15,7 @@ export class Donation {
   constructor(
     id: string,
     name: string,
-    user: User,
+    user: string,
     capacity: number,
     receivers: User[],
     date: Date,
@@ -42,10 +42,10 @@ export class Donation {
     this.id = id;
   }
 
-  getUser(): User {
+  getUser(): string {
     return this.user;
   }
-  setUser(user: User): void {
+  setUser(user: string): void {
     this.user = user;
   }
 

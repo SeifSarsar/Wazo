@@ -9,6 +9,7 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AgmCoreModule } from "@agm/core";
 import { routes } from "../environments/routes";
 import { environment } from "../environments/environment";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 //Components
 import { GoogleMapsComponent } from "./google-maps/google-maps.component";
@@ -27,6 +28,8 @@ import { SignupPageComponent } from "./signup-page/signup-page.component";
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,

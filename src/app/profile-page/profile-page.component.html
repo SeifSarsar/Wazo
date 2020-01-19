@@ -2,8 +2,8 @@
   <h1>{{ user.username }}'s Profile</h1>
   <h2>Current Donations</h2>
   <ul>
-    <div class="container">
-      <div *ngFor="let donation of donations">
+    <div class="donations">
+      <div *ngFor="let donation of donations" class="donation">
         <app-donation-description
           [donation]="donation"
         ></app-donation-description>

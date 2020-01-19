@@ -1,3 +1,7 @@
-<li *ngFor = "let truc of feedbackitems">
-    {{truc.username}}
-</li>
+<ag-grid-angular
+    style="width: 600px; height: 600px; margin: 0px;"
+    class="ag-theme-balham"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    >
+</ag-grid-angular>

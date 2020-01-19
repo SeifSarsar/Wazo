@@ -21,7 +21,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { DonationDescriptionComponent } from './donation-description/donation-description.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
-
+import { AgGridModule } from 'ag-grid-angular';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +46,8 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
     AngularFireAuthModule,
     AgmCoreModule.forRoot({
       apiKey: environment.googleMapsKey
-    })
+    }),
+    AgGridModule.withComponents([])
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,18 +12,18 @@ export class HomePageComponent implements OnInit {
   constructor(private firestore: AngularFirestore) { }
 
   ngOnInit() {
-   /* let data = new Blob();
+    let data = new Blob();
     let arrayOfBlob = new Array<Blob>();
     arrayOfBlob.push(data);
     let file: File = new File(arrayOfBlob,'../../assets/SpongeBob-SquarePants-x-Nike-Kyrie-5-Pink.jpeg');
     let reader: FileReader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = function () {
-      console.log(reader.result);
+      console.log(reader.result as string);
     };
     reader.onerror = function (error) {
       console.log('Error: ', error);
-    };*/
+    };
 
     this.firestore.collection('Donation').get().subscribe(
       res => {

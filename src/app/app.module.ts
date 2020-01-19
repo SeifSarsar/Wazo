@@ -28,7 +28,6 @@ import { DonationDescriptionComponent } from './component/donation-description/d
     HomePageComponent,
     LoginPageComponent,
     SignupPageComponent,
-    SidebarComponent,
     ProfilePageComponent,
     NavbarComponent,
     SidebarComponent,

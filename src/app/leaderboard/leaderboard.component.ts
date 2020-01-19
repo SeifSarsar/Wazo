@@ -24,7 +24,7 @@ export const profiles: Profile[] = [
 
 
 export class LeaderboardComponent implements OnInit {
-  feedbackitems: any[] = [];
+  feedbackItems: any[] = [];
 
   constructor(private firestore:AngularFirestore) { 
   }
@@ -36,12 +36,16 @@ export class LeaderboardComponent implements OnInit {
       res => {
         if(!res) throw "Could not find documents";
         res.forEach((doc)=>{
-          console.log(doc.data());
-          this.feedbackitems.push(doc.data());
+          this.feedbackItems.push(doc.data());
         })
+        this.sortData();
       }
     )
-    this.liste[2] = {points:0, name:"EtzerLaPute"};
+  }
+
+  sortData():void{
+    this.feedbackItems.sort((a, b) => (a.points > b.points) ? 1 : -1);
   }
 
 }
+

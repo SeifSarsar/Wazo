@@ -26,6 +26,7 @@ background-color:white;
 .login{
     border-color: #ff009e;
     color:black;
+    border-style:solid;
 }
 
 .signup{

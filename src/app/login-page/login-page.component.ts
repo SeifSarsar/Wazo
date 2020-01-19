@@ -59,6 +59,7 @@ export class LoginPageComponent implements OnInit {
                 user.username,
                 user.generosity
               );
+              console.log(newUser);
               this.stateService.login(newUser);
               this.router.navigate(["/"]);
             },

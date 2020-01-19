@@ -22,6 +22,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { DonationDescriptionComponent } from './donation-description/donation-description.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+import { DonationPageComponent } from './donation-page/donation-page.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
     NavbarComponent,
     SidebarComponent,
     DonationDescriptionComponent,
-    LeaderboardComponent
+    LeaderboardComponent,
+    DonationPageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 import { User } from "../environments/user";
+import { Donation } from "../environments/donation";
 @Injectable({
   providedIn: "root"
 })
@@ -15,6 +16,14 @@ export class StateService {
 
   private user = new BehaviorSubject<User>(null);
   userObs: Observable<User> = this.user.asObservable();
+
+  private searchDonations = new BehaviorSubject<any[]>(null);
+  searchDonationsObs: Observable<any[]> = this.searchDonations.asObservable();
+
+  getDonations(donations: any[]) {
+    console.log(donations);
+    this.searchDonations.next(donations);
+  }
 
   login(user: User) {
     this.user.next(user);

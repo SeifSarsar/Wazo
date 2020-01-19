@@ -12,13 +12,14 @@ import { environment } from "../environments/environment";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 //Components
-import { GoogleMapsComponent } from "./google-maps/google-maps.component";
-import { HomePageComponent } from "./home-page/home-page.component";
-import { LoginPageComponent } from "./login-page/login-page.component";
-import { SignupPageComponent } from "./signup-page/signup-page.component";
-import { NavbarComponent } from './navbar/navbar.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { GoogleMapsComponent } from "./component/google-maps/google-maps.component";
+import { HomePageComponent } from "./component/home-page/home-page.component";
+import { LoginPageComponent } from "./component/login-page/login-page.component";
+import { SignupPageComponent } from "./component/signup-page/signup-page.component";
+import { NavbarComponent } from './component/navbar/navbar.component';
+import { SidebarComponent } from './component/sidebar/sidebar.component';
+import { ProfilePageComponent } from './component/profile-page/profile-page.component';
+import { DonationDescriptionComponent } from './component/donation-description/donation-description.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
     SidebarComponent,
     ProfilePageComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    DonationDescriptionComponent
   ],
   imports: [
     BrowserModule,

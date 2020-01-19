@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Donation } from '../../environments/donation';
+import { Donation } from '../../../environments/donation';
 import { Individual } from 'src/environments/individual';
 import { Category, Coordinates } from 'src/environments/global';
 

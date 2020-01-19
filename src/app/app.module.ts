@@ -16,8 +16,11 @@ import { GoogleMapsComponent } from "./google-maps/google-maps.component";
 import { HomePageComponent } from "./home-page/home-page.component";
 import { LoginPageComponent } from "./login-page/login-page.component";
 import { SignupPageComponent } from "./signup-page/signup-page.component";
-import { NavbarComponent } from "./navbar/navbar.component";
-import { ProfilePageComponent } from "./profile-page/profile-page.component";
+import { NavbarComponent } from './navbar/navbar.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { DonationDescriptionComponent } from './donation-description/donation-description.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { ProfilePageComponent } from "./profile-page/profile-page.component";
     LoginPageComponent,
     SignupPageComponent,
     ProfilePageComponent,
-    NavbarComponent
+    NavbarComponent,
+    SidebarComponent,
+    DonationDescriptionComponent,
+    LeaderboardComponent
   ],
   imports: [
     BrowserModule,

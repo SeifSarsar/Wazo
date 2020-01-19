@@ -18,6 +18,7 @@ import { LoginPageComponent } from "./login-page/login-page.component";
 import { SignupPageComponent } from "./signup-page/signup-page.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { ProfilePageComponent } from "./profile-page/profile-page.component";
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ProfilePageComponent } from "./profile-page/profile-page.component";
     LoginPageComponent,
     SignupPageComponent,
     ProfilePageComponent,
-    NavbarComponent
+    NavbarComponent,
+    LeaderboardComponent
   ],
   imports: [
     BrowserModule,

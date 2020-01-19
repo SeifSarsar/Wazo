@@ -4,6 +4,7 @@ import { HomePageComponent } from "../app/home-page/home-page.component";
 import { ProfilePageComponent } from 'src/app/profile-page/profile-page.component';
 import { DonationDescriptionComponent } from 'src/app/donation-description/donation-description.component';
 import {LeaderboardComponent} from 'src/app/leaderboard/leaderboard.component';
+import { DonationFormComponent } from 'src/app/donation-form/donation-form.component';
 
 export const routes = [
   { path: "", component: HomePageComponent },
@@ -11,7 +12,8 @@ export const routes = [
   { path: "signup", component: SignupPageComponent },
   { path: "profile", component: ProfilePageComponent},
   { path: "donation", component: DonationDescriptionComponent},
-  { path: "leaderboard", component: LeaderboardComponent}
+  { path: "leaderboard", component: LeaderboardComponent},
+  { path: "donationform", component: DonationFormComponent}
 ];
 
 //ex :  { path: '', component: ProductListComponent },

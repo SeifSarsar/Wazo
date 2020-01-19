@@ -9,12 +9,15 @@ import { User } from "../../environments/user";
 export class NavbarComponent {
   constructor(private stateService: StateService) {}
   private navbarOpen: boolean = false;
-  private username: string;
+  private username:string;
+  private userID:string;
   ngOnInit() {
+    console.log(this.userID);
     this.stateService.userObs.subscribe(
       user => {
         if (user) {
           this.username = user.getUsername();
+          this.userID = user.getId();
         }
       },
       err => {

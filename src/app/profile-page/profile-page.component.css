@@ -4,3 +4,48 @@
     padding-top: 25px;
     padding-left: 20px;
   }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns : 200px 200px 200px;
+    grid-gap: 50px;
+    background-color: white;
+    padding: 15px;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+    
+  }
+  .item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    border: 1px solid #ff009e;
+    text-align: center;
+    color: #ff009e;
+    padding: 20px 0;
+    font-size: 20px;
+    height: 150px;
+    cursor: pointer;
+    width:150px;
+    margin:20px;
+  }
+  .item:hover{
+    box-shadow: 0 0.125rem 0.25rem rgba(255, 0, 157, 0.507);
+    transition: 0.2s;
+  }
+  
+  .text {
+    text-align: center;
+  }
+
+  ul{
+    list-style: none;
+  }
+
+  .container{
+    display:flex;
+  }
+
+  #generosity{
+    font-weight:bold;
+    color:#ff009e;
+  }

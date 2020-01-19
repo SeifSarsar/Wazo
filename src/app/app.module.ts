@@ -10,6 +10,7 @@ import { AgmCoreModule } from "@agm/core";
 import { routes } from "../environments/routes";
 import { environment } from "../environments/environment";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http"
 
 //Components
 import { GoogleMapsComponent } from "./google-maps/google-maps.component";
@@ -39,6 +40,7 @@ import { DonationPageComponent } from './donation-page/donation-page.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,

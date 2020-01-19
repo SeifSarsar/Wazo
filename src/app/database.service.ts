@@ -87,4 +87,6 @@ export class DatabaseService {
       .doc(userId)
       .get();
   }
+
+
 }

@@ -1,51 +1,57 @@
 .navbar {
-border-bottom: 1px solid #ced4da;
-background-color:white;
+  border-bottom: 1px solid #ced4da;
+  background-color: white;
 }
-.btn{
-    margin: 2px;
+.btn {
+  margin: 2px;
 }
 .btn-outline-success {
-    color: #ff009e;
-    border: 1px solid #ff009e;
+  color: #ff009e;
+  border: 1px solid #ff009e;
 }
 .btn-outline-success:hover {
-    background-color: #ff009e;
-    color: white;
-    transition: 0.2s;
+  background-color: #ff009e;
+  color: white;
+  transition: 0.2s;
 }
 
-.kiwi-bird{
-    font-size:30px;
-    color:#ff009e;
+.kiwi-bird {
+  font-size: 30px;
+  color: #ff009e;
 }
 
-.toggle-sidebar{
-    font-size:30px;
-    color:black;
-    margin-left:15px;
+.fa-user-circle {
+  font-size: 20px;
+  cursor: pointer;
 }
 
-.toggle-sidebar:hover{
-    color:#ff009e;
-    cursor: pointer;
+.toggle-sidebar {
+  font-size: 30px;
+  color: black;
+  margin-left: 15px;
+  cursor: pointer;
 }
 
-.login{
-    border-color: #ff009e;
-    color:black;
-    border-style:solid;
+.toggle-sidebar:hover,
+.fa-user-circle:hover {
+  color: #ff009e;
 }
 
-.signup{
-    color:black;
+.login {
+  border-color: #ff009e;
+  color: black;
+  border-style: solid;
 }
 
-.signup:hover{
-    color:white;
+.signup {
+  color: black;
 }
 
-.login:hover{
-    background-color: #ff009e;
-    color:white;
+.signup:hover {
+  color: white;
+}
+
+.login:hover {
+  background-color: #ff009e;
+  color: white;
 }

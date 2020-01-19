@@ -54,7 +54,7 @@ export class LoginPageComponent implements OnInit {
               let user: any = res.data();
 
               let newUser = new User(
-                user.id,
+                res.id,
                 user.email,
                 user.username,
                 user.generosity

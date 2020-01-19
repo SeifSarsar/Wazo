@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from "@angular/fire/firestore";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-leaderboard',
@@ -10,20 +11,23 @@ import { AngularFirestore } from "@angular/fire/firestore";
 
 export class LeaderboardComponent implements OnInit {
   feedbackItems: any[] = [];
-
-  constructor(private firestore:AngularFirestore) { 
+  constructor(private firestore:AngularFirestore, private router: Router) { 
+  }
+  foo(event:any): void {
+    let x = this.feedbackItems.find(i=> i.id === event.data.id).id;
+    this.router.navigate([`profile/${x}`]);
   }
 
-  ngOnInit() {
+  ngOnInit() { 
     this.firestore.collection('User').get().subscribe(
       res => {
         if(!res) throw "Could not find documents";
         res.forEach((doc)=>{
-          this.feedbackItems.push(doc.data());
+          this.feedbackItems.push({...doc.data(), id : doc.id});
         })
         this.sortData();
         
-
+        console.log(this.feedbackItems);
         this.columnDefs = [
           {headerName: 'Enterprise', field: 'username', sortable: true, filter: true },
           {headerName: 'Price', field: 'generosity', sortable: true},

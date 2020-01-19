@@ -1,13 +1,16 @@
 <div>
-    <div style="width: 600px; float: left;"> 
-        <h2 class="title">Ranking of the best compagines.</h2>
-        <ag-grid-angular (cellClicked)="foo($event)"
-            style="width: 550px; height: 600px;"
-            class="ag-theme-balham"
-            [rowData]="rowData"
-            [columnDefs]="columnDefs"
-            >
-        </ag-grid-angular>
+    <div class="page">
+        <div>
+            <div style="width: 600px; float: left;">
+                <h2 class="title">Ranking of the best compagines in the world</h2>
+                <ag-grid-angular (cellClicked)="foo($event)" style="width: 550px; height: 600px;"
+                    class="ag-theme-balham" [rowData]="rowData" [columnDefs]="columnDefs">
+                </ag-grid-angular>
+            </div>
+        </div>
+        <div class="content">
+            <img class="image" src="../../assets/undraw_drone_race_0sim.svg" />
+        </div>
     </div>
 
 

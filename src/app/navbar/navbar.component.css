@@ -1,7 +1,42 @@
 .navbar {
-border-bottom: 1px solid #ff009e;
+border-bottom: 1px solid #ced4da;
+background-color:white;
 }
 
 .btn {
     margin: 2px;
+}
+
+.kiwi-bird{
+    font-size:30px;
+    color:#ff009e;
+}
+
+.toggle-sidebar{
+    font-size:30px;
+    color:black;
+    margin-left:15px;
+}
+
+.toggle-sidebar:hover{
+    color:#ff009e;
+    cursor: pointer;
+}
+
+.login{
+    border-color: #ff009e;
+    color:black;
+}
+
+.signup{
+    color:black;
+}
+
+.signup:hover{
+    color:white;
+}
+
+.login:hover{
+    background-color: #ff009e;
+    color:white;
 }

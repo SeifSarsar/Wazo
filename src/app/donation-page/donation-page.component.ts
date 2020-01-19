@@ -20,6 +20,7 @@ export class DonationPageComponent implements OnInit {
     this.activatedRouter.params.subscribe(params =>
       this.databaseService.getDonation(params.id).subscribe(donationdoc => {
         this.donation = donationdoc.data();
+        console.log(this.donation);
         this.databaseService
           .getUser(this.donation.userId)
           .subscribe(userdoc => {

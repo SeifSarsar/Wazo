@@ -1,9 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import { Validators } from "@angular/forms";
-
+import { User } from "../../environments/user";
 import { Router } from "@angular/router";
 import { DatabaseService } from "../database.service";
+import { StateService } from "../state.service";
 
 @Component({
   selector: "app-signup-page",
@@ -13,7 +14,8 @@ import { DatabaseService } from "../database.service";
 export class SignupPageComponent implements OnInit {
   constructor(
     private databaseService: DatabaseService,
-    private router: Router
+    private router: Router,
+    private stateService: StateService
   ) {}
 
   form: FormGroup;
@@ -77,8 +79,28 @@ export class SignupPageComponent implements OnInit {
             .then(() => {
               this.databaseService
                 .login(email, password)
-                .then(() => {
-                  this.router.navigate(["/"]);
+                .then(res => {
+                  let userId = res.user.uid;
+                  this.databaseService.getUser(userId).subscribe(
+                    res => {
+                      if (!res || res == undefined)
+                        throw "Could not find a user";
+                      let user: any = res.data();
+
+                      let newUser = new User(
+                        res.id,
+                        user.email,
+                        user.username,
+                        user.generosity
+                      );
+                      console.log(newUser);
+                      this.stateService.login(newUser);
+                      this.router.navigate(["/"]);
+                    },
+                    err => {
+                      throw err;
+                    }
+                  );
                 })
                 .catch(err => {
                   throw err;

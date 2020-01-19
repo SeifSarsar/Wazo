@@ -9,14 +9,25 @@
         {{ donation.title }}
       </div>
 
+      <div class="donation-category">
+        {{ donation.category }}
+      </div>
+    </div>
+    <div class="donation-header">
+      <div class="donation-date">{{ donation.date.seconds | date }}</div>
+
       <div class="donation-author">
         {{ donationAuthor.username }}
       </div>
     </div>
     <div class="donation-description">{{ donation.description }}</div>
 
-    <div class="donation-date">{{ donation.date.seconds | date }}</div>
-
     <input type="submit" value="Participate" class="submit-button" />
+  </div>
+  <div class="donation-map">
+    <app-google-maps
+      [latitude]="donation.coordinates.latitude"
+      [longitude]="donation.coordinates.longitude"
+    ></app-google-maps>
   </div>
 </div>

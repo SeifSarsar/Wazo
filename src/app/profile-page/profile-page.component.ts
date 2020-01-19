@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Enterprise} from '../../environments/enterprise'
-import {Individual} from '../../environments/individual'
-import {Branch} from '../../environments/branch'
 
 @Component({
   selector: 'app-profile-page',

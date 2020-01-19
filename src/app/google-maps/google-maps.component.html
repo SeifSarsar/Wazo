@@ -10,9 +10,8 @@
 [zoom]="2"
 >
 <agm-marker
-  *ngFor="let coordinate of coordinates"
-  [latitude]="coordinate.latitude"
-  [longitude]="coordinate.longitude"
+  [latitude]="marker.latitude"
+  [longitude]="marker.longitude"
   [opacity]="1"
   [markerDraggable]="false"
   (markerClick)="selectMarker($event)"

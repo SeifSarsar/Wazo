@@ -1,5 +1,4 @@
 import { User } from "./user";
-import { Individual } from "./individual";
 import { Category, Coordinates } from "./global";
 
 export class Donation {
@@ -9,7 +8,7 @@ export class Donation {
   private capacity: number;
   private image: string;
 
-  private receivers: Individual[];
+  private receivers: User[];
   private date: Date;
   private category: Category;
   private coordinates: Coordinates;
@@ -18,7 +17,7 @@ export class Donation {
     name: string,
     user: User,
     capacity: number,
-    receivers: Individual[],
+    receivers: User[],
     date: Date,
     category: Category,
     image: string,
@@ -57,10 +56,10 @@ export class Donation {
     this.capacity = capacity;
   }
 
-  getReceivers(): Individual[] {
+  getReceivers(): User[] {
     return this.receivers;
   }
-  setReceivers(receivers: Individual[]) {
+  setReceivers(receivers: User[]) {
     this.receivers = receivers;
   }
 

@@ -82,24 +82,17 @@
         </div>
       </div>
       <div class="radio-container">
-        <div class="radio-group" [ngClass]="{ checked: userType == 'Individual' }"
-        (click)="setUserType('Individual')">
-          <div
-            class="radio-checkmark"
-            
-          >
+        <div
+          class="radio-group"
+          [ngClass]="{ checked: userType == 'Individual' }"
+          (click)="setUserType('Individual')"
+        >
+          <div class="radio-checkmark">
             <i class="fas fa-times"></i>
           </div>
           <div class="radio-text">Individual</div>
         </div>
-        <div
-          class="radio-group"
-          [ngClass]="{ checked: userType == 'Branch' }"
-          (click)="setUserType('Branch')"
-        >
-          <div class="radio-checkmark"><i class="fas fa-times"></i></div>
-          <div class="radio-text">Branch</div>
-        </div>
+
         <div
           class="radio-group"
           [ngClass]="{ checked: userType == 'Enterprise' }"

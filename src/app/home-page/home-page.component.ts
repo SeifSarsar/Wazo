@@ -23,6 +23,16 @@ export class HomePageComponent implements OnInit {
     "image 14",
     "image 15",
     "image 16",
+    "image 16",
+    "image 16",
+    "image 16",
+    "image 16",
+    "image 16",
+    "image 16",
+    "image 16",
+    "image 16",
+    "image 16",
+    "image 16",
   ];
   constructor() { }
 

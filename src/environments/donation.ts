@@ -4,8 +4,10 @@ import { Category, Coordinates } from "./global";
 
 export class Donation {
   private id: string;
+  private name: string;
   private user: User;
   private capacity: number;
+  private image: string;
 
   private receivers: Individual[];
   private date: Date;
@@ -13,19 +15,23 @@ export class Donation {
   private coordinates: Coordinates;
   constructor(
     id: string,
+    name: string,
     user: User,
     capacity: number,
     receivers: Individual[],
     date: Date,
     category: Category,
+    image: string,
     coordinates: Coordinates
   ) {
     this.id = id;
+    this.name = name;
     this.user = user;
     this.capacity = capacity;
     this.receivers = receivers;
     this.date = date;
     this.category = category;
+    this.image = image;
     this.coordinates = coordinates;
   }
 

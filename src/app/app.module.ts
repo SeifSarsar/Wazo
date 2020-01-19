@@ -9,6 +9,7 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AgmCoreModule } from "@agm/core";
 import { routes } from "../environments/routes";
 import { environment } from "../environments/environment";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 //Components
 import { GoogleMapsComponent } from "./google-maps/google-maps.component";
@@ -17,6 +18,7 @@ import { LoginPageComponent } from "./login-page/login-page.component";
 import { SignupPageComponent } from "./signup-page/signup-page.component";
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
 
 @NgModule({
   declarations: [
@@ -25,12 +27,16 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     HomePageComponent,
     LoginPageComponent,
     SignupPageComponent,
+    SidebarComponent,
+    ProfilePageComponent,
     NavbarComponent,
     SidebarComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,

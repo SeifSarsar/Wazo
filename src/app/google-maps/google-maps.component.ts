@@ -11,9 +11,8 @@ import { Donation } from "../../environments/donation";
 })
 export class GoogleMapsComponent implements OnInit {
   constructor(private http:HttpClient,private firestore: AngularFirestore) {}
-  coordinates: any;
   longitude:number;
-  latitude:number;s
+  latitude:number;
   getCoordinates(adress){
     this.http.get<any>(`https://geocoder.ls.hereapi.com/6.2/geocode.json?apiKey=b5PONh6oKhomE_hcCR5CfY3hCD_VnDxbkQ-e-fF2Hsw&searchtext=${adress}`)
     .subscribe(res=>{
@@ -24,8 +23,8 @@ export class GoogleMapsComponent implements OnInit {
   selectedMarker;
   iconUrl = "http://maps.google.com/mapfiles/ms/icons/pink-dot.png";
   marker = {
-      latitude: this.coordinates.latidute,
-      longitude: this.coordinates.longitude,
+      latitude: 45.488276,
+      longitude: -73.491007,
       alpha: 1,
       icon: { url: this.iconUrl }
   }
@@ -45,7 +44,7 @@ export class GoogleMapsComponent implements OnInit {
         res.forEach((doc)=>
         {
           let donation: any = doc.data();
-          this.coordinates.push(donation.coordinates)
+          //this.coordinates.push(donation.coordinates)
         });
       }
     )

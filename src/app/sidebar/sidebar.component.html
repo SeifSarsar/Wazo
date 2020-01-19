@@ -1,21 +1,43 @@
-<!-- Sidebar -->
-<nav id="sidebar">
-  <ul class="list-unstyled components">
-    <p>Categories</p>
-    <li>
-      <a href="#homeSubmenu" aria-expanded="false">Home</a>
-    </li>
-    <li>
-      <a href="#">About</a>
-    </li>
-    <li>
-      <a href="#pageSubmenu" aria-expanded="false">Pages</a>
-    </li>
-    <li>
-      <a href="#">Portfolio</a>
-    </li>
-    <li>
-      <a href="#">Contact</a>
-    </li>
-  </ul>
-</nav>
+<div class="sidebar active">
+  <div
+    class="nav-link"
+    *ngIf="!isLoggedIn"
+    (click)="openWindowContent('signup')"
+  >
+    <div class="link-name">Sign Up</div>
+    <i class="fas fa-user-plus link-icon"></i>
+  </div>
+  <div class="nav-link">
+    <div class="link-name">Log In</div>
+    <i class="fas fa-sign-in-alt link-icon"></i>
+  </div>
+
+  <div
+    class="nav-link"
+    *ngIf="isLoggedIn"
+    (click)="openWindowContent('survey')"
+  >
+    <div class="link-name">Create Survey</div>
+    <i class="fas fa-folder-plus link-icon"></i>
+  </div>
+  <div class="nav-link" *ngIf="isLoggedIn" routerLink="/mysurveys">
+    <div class="link-name">My Surveys</div>
+    <i class="fas fa-poll-h link-icon"></i>
+  </div>
+  <div class="nav-link" routerLink="/weeklysurveys">
+    <div class="link-name">Weekly Surveys</div>
+    <i class="fas fa-star link-icon"></i>
+  </div>
+  <div
+    class="nav-link"
+    *ngIf="isLoggedIn"
+    (click)="openWindowContent('password')"
+  >
+    <div class="link-name">Change Password</div>
+    <i class="fas fa-key link-icon"></i>
+  </div>
+  <div class="nav-link" *ngIf="isLoggedIn" (click)="logout()">
+    <div class="link-name">Log Out</div>
+    <i class="fas fa-sign-out-alt link-icon"></i>
+  </div>
+</div>

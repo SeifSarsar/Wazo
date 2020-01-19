@@ -22,11 +22,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { DonationDescriptionComponent } from './donation-description/donation-description.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
-<<<<<<< HEAD
 import { AgGridModule } from 'ag-grid-angular';
-=======
 import { DonationFormComponent } from './donation-form/donation-form.component';
->>>>>>> 0ca52e13f0f5c7134ba152d696b63466063e0002
 import { DonationPageComponent } from './donation-page/donation-page.component';
 
 @NgModule({

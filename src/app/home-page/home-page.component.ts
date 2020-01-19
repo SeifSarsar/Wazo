@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Donation } from '../../environments/donation';
+import { Individual } from 'src/environments/individual';
+import { Category, Coordinates } from 'src/environments/global';
 
 @Component({
   selector: 'app-home-page',
@@ -6,37 +9,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-  images: string[] =[
-    "image 1",
-    "image 2",
-    "image 3",
-    "image 4",
-    "image 5",
-    "image 6",
-    "image 7",
-    "image 8",
-    "image 9",
-    "image 10",
-    "image 11",
-    "image 12",
-    "image 13",
-    "image 14",
-    "image 15",
-    "image 16",
-    "image 16",
-    "image 16",
-    "image 16",
-    "image 16",
-    "image 16",
-    "image 16",
-    "image 16",
-    "image 16",
-    "image 16",
-    "image 16",
-  ];
+  donations: Donation[] = new Array<Donation>();
   constructor() { }
 
   ngOnInit() {
+    let date: Date = new Date("2019-01-16")
+    let user: Individual = new Individual("15271", "gedambreville@gmail.com", "Etzerthe3rd", 5);
+    let donation: Donation = new Donation("1234", "Beats Pro", user, 3, [], date, Category.Furniture, "beatsProimage.png",new Coordinates(45, 36));
+    this.donations.push(donation);
   }
 
 }

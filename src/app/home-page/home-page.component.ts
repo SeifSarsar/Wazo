@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Donation } from '../../environments/donation';
-import { Individual } from 'src/environments/individual';
-import { Category, Coordinates } from 'src/environments/global';
-import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
-  selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.css']
+  selector: "app-home-page",
+  templateUrl: "./home-page.component.html",
+  styleUrls: ["./home-page.component.css"]
 })
 export class HomePageComponent implements OnInit {
   donations: Donation[] = new Array<Donation>();
@@ -48,5 +46,4 @@ export class HomePageComponent implements OnInit {
       }
     )
   }
-
 }

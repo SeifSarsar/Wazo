@@ -50,15 +50,15 @@ export class LoginPageComponent implements OnInit {
           let userId = res.user.uid;
           this.databaseService.getUser(userId).subscribe(
             res => {
-              if (!res) throw "Could not find a user";
+              if (!res || res == undefined) throw "Could not find a user";
               let user: any = res.data();
+
               let newUser = new User(
                 user.id,
                 user.email,
                 user.username,
                 user.generosity
               );
-              console.log(newUser);
               this.stateService.login(newUser);
               this.router.navigate(["/"]);
             },

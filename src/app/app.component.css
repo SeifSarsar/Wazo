@@ -1,0 +1,28 @@
+.app {
+  margin-left: 0px;
+}
+
+.app.padding {
+  margin-left: 250px;
+}
+
+.sidebar {
+  display: none;
+  position: fixed;
+  margin-top: 60px;
+  top: 0px;
+  width: 250px;
+  height: 100%;
+  border-right: 1px solid #ced4da;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  background-color: white;
+  z-index: 1;
+}
+.sidebar.active {
+  display: block;
+}
+
+.sidebar,
+.app {
+  transition: 0.2s;
+}

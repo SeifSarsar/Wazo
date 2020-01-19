@@ -23,7 +23,9 @@ export class LeaderboardComponent implements OnInit {
       res => {
         if(!res) throw "Could not find documents";
         res.forEach((doc)=>{
-          this.feedbackItems.push({...doc.data(), id : doc.id});
+          if (doc.data().type === "Enterprise"){
+            this.feedbackItems.push({...doc.data(), id : doc.id});
+          }
         })
         this.sortData();
         
@@ -42,6 +44,11 @@ export class LeaderboardComponent implements OnInit {
   sortData():void{
     this.feedbackItems.sort((a, b) => (a.generosity < b.generosity) ? 1 : -1);
   }
+
+  filterisEnterprise(property: string) :void {
+
+  } 
+
   title = 'app';
   columnDefs = [];
   rowData = [];

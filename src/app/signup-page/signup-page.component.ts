@@ -3,7 +3,7 @@ import { FormGroup, FormControl } from "@angular/forms";
 import { Validators } from "@angular/forms";
 import { Individual } from "../../environments/individual";
 import { Branch } from "../../environments/branch";
-import { Enterprise } from "../../environments/Enterprise";
+import { Enterprise } from "../../environments/enterprise";
 
 @Component({
   selector: "app-signup-page",

@@ -1,25 +1,12 @@
 import { User } from "./user";
 import { Branch } from "./branch";
 export class Enterprise extends User {
-  private popularity: number;
   private branches: Branch[];
-  constructor(
-    id: string,
-    email: string,
-    username: string,
-    popularity: number,
-    branches: Branch[]
-  ) {
-    super(id, email, username);
-    this.popularity = popularity;
-    this.branches = branches;
+  constructor(id: string, email: string, username: string, generosity: number) {
+    super(id, email, username, generosity);
+    //this.branches = branches;
   }
-
-  getPopularity(): number {
-    return this.popularity;
-  }
-
-  getBranches(): Branch[] {
+  /*nches(): Branch[] {
     return this.branches;
   }
 
@@ -30,5 +17,5 @@ export class Enterprise extends User {
       }
     }
     return null;
-  }
+  }*/
 }

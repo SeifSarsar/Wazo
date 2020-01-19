@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
-import { User } from "../../environments/user";
+import { User } from "../environments/user";
 @Injectable({
   providedIn: "root"
 })
@@ -12,8 +12,13 @@ export class StateService {
 
   private isSidebarActive = new BehaviorSubject<boolean>(null);
   isSidebarActiveObs: Observable<boolean> = this.isSidebarActive.asObservable();
+
   private user = new BehaviorSubject<User>(null);
   userObs: Observable<User> = this.user.asObservable();
+
+  login(user: User) {
+    this.user.next(user);
+  }
 
   toggleSideBar() {
     if (this.isSidebarActive.value) {

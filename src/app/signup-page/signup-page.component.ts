@@ -1,9 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import { Validators } from "@angular/forms";
-import { Individual } from "../../../environments/individual";
-import { Branch } from "../../../environments/branch";
-import { Enterprise } from "../../../environments/Enterprise";
+import { Individual } from "../../environments/individual";
+import { Branch } from "../../environments/branch";
+import { Enterprise } from "../../environments/Enterprise";
+
+import { Router } from "@angular/router";
+import { DatabaseService } from "../database.service";
 
 @Component({
   selector: "app-signup-page",
@@ -11,7 +14,10 @@ import { Enterprise } from "../../../environments/Enterprise";
   styleUrls: ["./signup-page.component.css"]
 })
 export class SignupPageComponent implements OnInit {
-  constructor() {}
+  constructor(
+    private databaseService: DatabaseService,
+    private router: Router
+  ) {}
 
   form: FormGroup;
 
@@ -62,26 +68,30 @@ export class SignupPageComponent implements OnInit {
   }
   signup() {
     if (this.form.valid) {
-      //create user
-      /*const user: User = new User(
-        this.form.get("email").value,
-        this.form.get("username").value,
-        this.form.get("password").value
-      );
-      this.stateService.startLoading();
+      let email = this.form.get("email").value;
+      let password = this.form.get("password").value;
+      let username = this.form.get("username").value;
 
-      this.httpService.addUser(user).subscribe(
-        data => {
-          this.stateService.closeWindowContent();
-          this.stateService.logIn(data.token, data.user);
-          this.stateService.endLoading();
-        },
-        err => {
-          this.stateService.endLoading();
-
-          this.stateService.notify(err.error, "error");
-        }
-      );*/
+      this.databaseService
+        .signup(email, password)
+        .then(res => {
+          this.databaseService
+            .addUser(res.user.uid, email, password, username, this.userType)
+            .then(() => {
+              this.databaseService
+                .login(email, password)
+                .then(() => {
+                  this.router.navigate(["/"]);
+                })
+                .catch(err => {
+                  throw err;
+                });
+            })
+            .catch(err => {
+              throw err;
+            });
+        })
+        .catch(err => console.log(err));
     }
   }
 }

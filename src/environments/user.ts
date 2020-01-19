@@ -1,12 +1,14 @@
-export abstract class User {
+export class User {
   private id: string;
   private email: string;
   private username: string;
+  private generosity: number;
 
-  constructor(id: string, email: string, username: string) {
+  constructor(id: string, email: string, username: string, generosity: number) {
     this.id = id;
     this.email = email;
     this.username = username;
+    this.generosity = generosity;
   }
 
   getId(): string {

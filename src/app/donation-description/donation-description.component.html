@@ -1,1 +1,8 @@
-<div class= "photo">image</div>
+<div (click)="openDonation()">
+  <img class="donation-image" src="../../assets/undraw_zoom_in_1txs.svg" />
+  <div class="donation-title">{{ donation.title }}</div>
+  <div class="donation-footer">
+    <div class="donation-category">{{ donation.category }}</div>
+    <div class="donation-capacity">{{ donation.capacity }}</div>
+  </div>
+</div>

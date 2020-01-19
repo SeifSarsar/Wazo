@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
-import { User } from "../environments/user";
+import { User } from "../../environments/user";
 @Injectable({
   providedIn: "root"
 })

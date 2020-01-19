@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Donation } from '../../environments/donation';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { DatabaseService } from '../database.service';
+import { User } from 'src/environments/user';
 
 @Component({
   selector: "app-home-page",
@@ -9,21 +11,10 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class HomePageComponent implements OnInit {
   donations: Donation[] = new Array<Donation>();
-  constructor(private firestore: AngularFirestore) { }
+  user: User;
+  constructor(private firestore: AngularFirestore, private databaseService: DatabaseService) { }
 
   ngOnInit() {
-    let data = new Blob();
-    let arrayOfBlob = new Array<Blob>();
-    arrayOfBlob.push(data);
-    let file: File = new File(arrayOfBlob,'../../assets/SpongeBob-SquarePants-x-Nike-Kyrie-5-Pink.jpeg');
-    let reader: FileReader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = function () {
-      console.log(reader.result as string);
-    };
-    reader.onerror = function (error) {
-      console.log('Error: ', error);
-    };
 
     this.firestore.collection('Donation').get().subscribe(
       res => {
@@ -45,5 +36,24 @@ export class HomePageComponent implements OnInit {
         })
       }
     )
+  }
+
+  getUsername(userId: string): void{
+    this.databaseService.getUser(userId).subscribe(
+      res => {
+        if (!res || res == undefined) throw "Could not find a user";
+        let newUser: any = res.data();
+        this.user = new User(
+          newUser.id,
+          newUser.email,
+          newUser.username,
+          newUser.generosity
+        );
+        console.log(this.user.getUsername());
+      },
+      err => {
+        throw err;
+      }
+    );
   }
 }

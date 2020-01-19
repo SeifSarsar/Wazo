@@ -10,6 +10,7 @@ import { AgmCoreModule } from "@agm/core";
 import { routes } from "../environments/routes";
 import { environment } from "../environments/environment";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http"
 
 //Components
 import { GoogleMapsComponent } from "./google-maps/google-maps.component";
@@ -21,6 +22,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { DonationDescriptionComponent } from './donation-description/donation-description.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+import { DonationFormComponent } from './donation-form/donation-form.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
     NavbarComponent,
     SidebarComponent,
     DonationDescriptionComponent,
-    LeaderboardComponent
+    LeaderboardComponent,
+    DonationFormComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
     AngularFireAuthModule,
     AgmCoreModule.forRoot({
       apiKey: environment.googleMapsKey
-    })
+    }),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

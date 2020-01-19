@@ -16,6 +16,7 @@ import { HomePageComponent } from "./home-page/home-page.component";
 import { LoginPageComponent } from "./login-page/login-page.component";
 import { SignupPageComponent } from "./signup-page/signup-page.component";
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     HomePageComponent,
     LoginPageComponent,
     SignupPageComponent,
-    SidebarComponent
+    SidebarComponent,
+    ProfilePageComponent
   ],
   imports: [
     BrowserModule,

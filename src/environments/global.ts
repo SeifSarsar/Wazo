@@ -1,9 +1,9 @@
 export enum Category {
-  Food,
-  Entertainment,
-  Furniture,
-  Clothe,
-  Other
+  Food = "Food",
+  Entertainment = "Entertainment",
+  Furniture = "Furniture",
+  Clothing = "Clothing" ,
+  Other = "Other"
 }
 export class Coordinates {
   lat: number;

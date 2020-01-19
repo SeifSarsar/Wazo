@@ -23,6 +23,7 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { DonationDescriptionComponent } from './donation-description/donation-description.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { DonationFormComponent } from './donation-form/donation-form.component';
+import { DonationPageComponent } from './donation-page/donation-page.component';
 
 @NgModule({
   declarations: [
@@ -36,10 +37,12 @@ import { DonationFormComponent } from './donation-form/donation-form.component';
     SidebarComponent,
     DonationDescriptionComponent,
     LeaderboardComponent,
-    DonationFormComponent
+    DonationFormComponent,
+    DonationPageComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,

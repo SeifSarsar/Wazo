@@ -1,14 +1,20 @@
+<div>
+    <label>Adress
+      <input [(ngModel)]="adress" placeholder="enter you adress"/>
+      <button (click)="getCoordinates(adress)">Submit</button>
+    </label>
+</div>
 <agm-map
 [latitude]="latitude"
 [longitude]="longitude"
 [zoom]="2"
 >
 <agm-marker
-  *ngFor="let marker of markers"
-  [latitude]="marker.latitude"
-  [longitude]="marker.longitude"
-  [opacity]="marker.alpha"
-  [markerDraggable]=""
+  *ngFor="let coordinate of coordinates"
+  [latitude]="coordinate.latitude"
+  [longitude]="coordinate.longitude"
+  [opacity]="1"
+  [markerDraggable]="false"
   (markerClick)="selectMarker($event)"
   [iconUrl] = "marker.icon.url"
 >

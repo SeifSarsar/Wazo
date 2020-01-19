@@ -1,41 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { Donation } from '../../environments/donation';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { Component, OnInit } from "@angular/core";
+
+import { StateService } from "../state.service";
 import { DatabaseService } from '../database.service';
 import { User } from 'src/environments/user';
-
 @Component({
   selector: "app-home-page",
   templateUrl: "./home-page.component.html",
   styleUrls: ["./home-page.component.css"]
 })
 export class HomePageComponent implements OnInit {
-  donations: Donation[] = new Array<Donation>();
+  donations: any[] = [];
   user: User;
-  constructor(private firestore: AngularFirestore, private databaseService: DatabaseService) { }
+  constructor(private stateService: StateService, private databaseService: DatabaseService) {}
 
   ngOnInit() {
-
-    this.firestore.collection('Donation').get().subscribe(
-      res => {
-        if(!res) throw "Could not find documents";
-        res.forEach((doc)=>{
-          let donation: any = doc.data();
-          let newDonation = new Donation(
-            donation.id,
-            donation.title,
-            donation.userId,
-            donation.capacity,
-            donation.participants,
-            donation.date,
-            donation.category,
-            donation.description,
-            donation.coordinates
-          );
-          this.donations.push(newDonation);
-        })
-      }
-    )
+    this.stateService.searchDonationsObs.subscribe(donations => {
+      this.donations = donations;
+      console.log(donations);
+    });
   }
 
   getUsername(userId: string): void{

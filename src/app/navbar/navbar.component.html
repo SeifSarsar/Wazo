@@ -18,7 +18,7 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
     <form class="form-inline my-2 my-lg-0">
-      <div *ngIf="username; else noUser">
+      <div *ngIf="username; else noUser" [routerLink]="['/profile',userID]">
         <i class="fas fa-user-circle"></i>
         <span> {{ username }}</span>
       </div>

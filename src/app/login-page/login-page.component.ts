@@ -1,6 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import { Validators } from "@angular/forms";
+import { DatabaseService } from "../database.service";
+import { Router } from "@angular/router";
+import { StateService } from "../state.service";
+import { User } from "../../environments/user";
+import { AngularFirestore } from "@angular/fire/firestore";
 
 @Component({
   selector: "app-login-page",
@@ -8,10 +13,16 @@ import { Validators } from "@angular/forms";
   styleUrls: ["./login-page.component.css"]
 })
 export class LoginPageComponent implements OnInit {
-  constructor() {}
+  constructor(
+    private databaseService: DatabaseService,
+    private stateService: StateService,
+    private router: Router,
+    private firestore: AngularFirestore
+  ) {}
+
+  userType: string = "Individual";
 
   form: FormGroup;
-
   ngOnInit() {
     this.form = new FormGroup(
       {
@@ -25,12 +36,38 @@ export class LoginPageComponent implements OnInit {
       { updateOn: "submit" }
     );
   }
+
+  setUserType(type: string): void {
+    this.userType = type;
+  }
   login() {
     if (this.form.valid) {
       const email = this.form.get("email").value;
       const password = this.form.get("password").value;
-      console.log(email);
-      console.log(password);
+      this.databaseService
+        .login(email, password)
+        .then(res => {
+          let userId = res.user.uid;
+          this.databaseService.getUser(userId).subscribe(
+            res => {
+              if (!res) throw "Could not find a user";
+              let user: any = res.data();
+              let newUser = new User(
+                user.id,
+                user.email,
+                user.username,
+                user.generosity
+              );
+              console.log(newUser);
+              this.stateService.login(newUser);
+              this.router.navigate(["/"]);
+            },
+            err => {
+              throw err;
+            }
+          );
+        })
+        .catch(err => console.log(err));
     }
   }
 }

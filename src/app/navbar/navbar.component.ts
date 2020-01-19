@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StateService } from "../state.service";
 
 @Component({
   selector: 'app-navbar',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  constructor(private stateService: StateService) {}
   navbarOpen = false;
-
+  toggleSideBar(){
+    this.stateService.toggleSideBar();
+  }
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
   }

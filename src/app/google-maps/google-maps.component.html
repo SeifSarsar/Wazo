@@ -1,1 +1,19 @@
-<!--<agm-map> </agm-map>-->
+<agm-map
+[latitude]="latitude"
+[longitude]="longitude"
+[zoom]="2"
+>
+<agm-marker
+  *ngFor="let marker of markers"
+  [latitude]="marker.latitude"
+  [longitude]="marker.longitude"
+  [opacity]="marker.alpha"
+  [markerDraggable]=""
+  (markerClick)="selectMarker($event)"
+  [iconUrl] = "marker.icon.url"
+>
+</agm-marker>
+</agm-map>
+<p *ngIf="selectedMarker">
+latitude: {{ selectedMarker.latitude }} longitude: {{ selectedMarker.longitude }}
+</p>

@@ -5,6 +5,7 @@ import { DatabaseService } from "../database.service";
 import { Router } from "@angular/router";
 import { StateService } from "../state.service";
 import { User } from "../../environments/user";
+import { AngularFirestore } from "@angular/fire/firestore";
 
 @Component({
   selector: "app-login-page",
@@ -15,13 +16,13 @@ export class LoginPageComponent implements OnInit {
   constructor(
     private databaseService: DatabaseService,
     private stateService: StateService,
-    private router: Router
+    private router: Router,
+    private firestore: AngularFirestore
   ) {}
 
   userType: string = "Individual";
 
   form: FormGroup;
-
   ngOnInit() {
     this.form = new FormGroup(
       {

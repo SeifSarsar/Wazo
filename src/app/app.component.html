@@ -1,4 +1,63 @@
-<!--<app-google-maps></app-google-maps>-->
-<app-home-page></app-home-page>
-<app-sidebar></app-sidebar>
-<router-outlet></router-outlet>
+<app-navbar></app-navbar>
+<div class="app" [ngClass]="{ padding: isSidebarActive == true }">
+  <router-outlet></router-outlet>
+</div>
+<div class="sidebar" [ngClass]="{ active: isSidebarActive == true }">
+  <form [formGroup]="form" (ngSubmit)="search()">
+    <div>
+      <div class="filter-title">Category</div>
+      <select class="category-select">
+        <option select class="category-option">All</option>
+        <option class="category-option">Food</option>
+        <option class="category-option">Furniture</option>
+        <option class="category-option">Clothes</option>
+        <option class="category-option">Health</option>
+        <option class="category-option">Entertainment</option>
+        <option class="category-option">Other</option>
+      </select>
+    </div>
+
+    <div>
+      <div class="filter-title">Donator Type</div>
+      <div
+        class="radio-group"
+        [ngClass]="{ checked: typeFilter == 'Both' }"
+        (click)="setTypeFilter('Both')"
+      >
+        <div class="radio-checkmark">
+          <i class="fas fa-times"></i>
+        </div>
+        <div class="radio-text">Both</div>
+      </div>
+      <div
+        class="radio-group"
+        [ngClass]="{ checked: typeFilter == 'Individual' }"
+        (click)="setTypeFilter('Individual')"
+      >
+        <div class="radio-checkmark">
+          <i class="fas fa-times"></i>
+        </div>
+        <div class="radio-text">Individual</div>
+      </div>
+
+      <div
+        class="radio-group"
+        [ngClass]="{ checked: typeFilter == 'Enterprise' }"
+        (click)="setTypeFilter('Enterprise')"
+      >
+        <div class="radio-checkmark"><i class="fas fa-times"></i></div>
+        <div class="radio-text">Enterprise</div>
+      </div>
+    </div>
+    <div>
+      <div class="filter-title">Radius (Km)</div>
+      <input class="input" type="number" value="10" formControlName="radius" />
+    </div>
+    <input
+      type="button"
+      value="Search"
+      class="submit-button"
+      (click)="search()"
+    />
+  </form>
+</div>

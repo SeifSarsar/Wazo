@@ -1,1 +1,11 @@
-<!--<agm-map> </agm-map>-->
+<agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="10">
+  <agm-marker
+    [latitude]="marker.latitude"
+    [longitude]="marker.longitude"
+    [opacity]="1"
+    [markerDraggable]="false"
+    (markerClick)="selectMarker($event)"
+    [iconUrl]="marker.icon.url"
+  >
+  </agm-marker>
+</agm-map>

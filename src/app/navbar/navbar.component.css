@@ -1,0 +1,69 @@
+.navbar {
+  border-bottom: 1px solid #ff009e;
+  background-color: white;
+  position: fixed;
+  width: 100%;
+}
+
+.lead{
+  font-size: medium;
+}
+
+.btn {
+  margin: 2px;
+  
+}
+.btn-outline-success {
+  color: #ff009e;
+  border: 1px solid #ff009e;
+}
+.btn-outline-success:hover {
+  background-color: #ff009e;
+  color: white;
+  transition: 0.2s;
+}
+
+.btn-outline-success:active {
+  color: #ff009e;
+}
+
+.kiwi-bird {
+  font-size: 30px;
+  color: #ff009e;
+}
+
+.fa-user-circle {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.toggle-sidebar {
+  font-size: 30px;
+  color: black;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.toggle-sidebar:hover,
+.fa-user-circle:hover {
+  color: #ff009e;
+}
+
+.login {
+  border-color: #ff009e;
+  color: black;
+  border-style: solid;
+}
+
+.signup {
+  color: black;
+}
+
+.signup:hover {
+  color: white;
+}
+
+.login:hover {
+  background-color: #ff009e;
+  color: white;
+}

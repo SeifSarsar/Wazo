@@ -1,0 +1,20 @@
+.ag-theme-balham{
+    margin: 50px;
+}
+.title{
+    color: #ff009e;
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
+    margin-left: 100px;
+}
+.page {
+    display: flex;
+    justify-content: space-around;
+  }
+.image{
+    align-items: center;
+    width: 70%;
+    padding-top: 175px;
+    position: relative; left: 50px;
+    
+}

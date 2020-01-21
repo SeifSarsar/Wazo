@@ -1,7 +1,5 @@
-<p>home-page works!</p>
-<div class="grid-container">
-    <div class= "item" *ngFor = "let image of images">
-      {{image}}
-
-    </div>
+<div class="donations">
+  <div *ngFor="let donation of donations" class="donation">
+    <app-donation-description [donation]="donation"></app-donation-description>
+  </div>
 </div>
